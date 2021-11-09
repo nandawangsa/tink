@@ -26,7 +26,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/google/tink/go/streamingaead/subtle/noncebased"
+	"github.com/nandawangsa/tink/go/streamingaead/subtle/noncebased"
 )
 
 func TestNonceBased(t *testing.T) {

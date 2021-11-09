@@ -22,12 +22,12 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/tink/go/core/registry"
-	"github.com/google/tink/go/streamingaead/subtle"
-	"github.com/google/tink/go/testutil"
-	ctrhmacpb "github.com/google/tink/go/proto/aes_ctr_hmac_streaming_go_proto"
-	commonpb "github.com/google/tink/go/proto/common_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/core/registry"
+	"github.com/nandawangsa/tink/go/streamingaead/subtle"
+	"github.com/nandawangsa/tink/go/testutil"
+	ctrhmacpb "github.com/nandawangsa/tink/go/proto/aes_ctr_hmac_streaming_go_proto"
+	commonpb "github.com/nandawangsa/tink/go/proto/common_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 var aesCTRHMACKeySizes = []uint32{16, 32}

@@ -20,7 +20,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/google/tink/go/streamingaead/subtle"
+	"github.com/nandawangsa/tink/go/streamingaead/subtle"
 )
 
 func TestAESCTRHMACEncryptDecrypt(t *testing.T) {

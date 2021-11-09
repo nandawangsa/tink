@@ -21,13 +21,13 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	subtleaead "github.com/google/tink/go/aead/subtle"
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/streamingaead/subtle"
-	"github.com/google/tink/go/subtle/random"
-	ghpb "github.com/google/tink/go/proto/aes_gcm_hkdf_streaming_go_proto"
-	commonpb "github.com/google/tink/go/proto/common_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	subtleaead "github.com/nandawangsa/tink/go/aead/subtle"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/streamingaead/subtle"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	ghpb "github.com/nandawangsa/tink/go/proto/aes_gcm_hkdf_streaming_go_proto"
+	commonpb "github.com/nandawangsa/tink/go/proto/common_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 const (

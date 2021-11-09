@@ -23,7 +23,7 @@ package signature
 import (
 	"fmt"
 
-	"github.com/google/tink/go/core/registry"
+	"github.com/nandawangsa/tink/go/core/registry"
 )
 
 func init() {

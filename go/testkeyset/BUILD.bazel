@@ -8,7 +8,7 @@ go_library(
     name = "go_default_library",
     testonly = 1,
     srcs = ["testkeyset.go"],
-    importpath = "github.com/google/tink/go/testkeyset",
+    importpath = "github.com/nandawangsa/tink/go/testkeyset",
     visibility = ["//visibility:public"],
     deps = [
         "//internal:go_default_library",

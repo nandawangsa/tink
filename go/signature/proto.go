@@ -17,8 +17,8 @@
 package signature
 
 import (
-	commonpb "github.com/google/tink/go/proto/common_go_proto"
-	ecdsapb "github.com/google/tink/go/proto/ecdsa_go_proto"
+	commonpb "github.com/nandawangsa/tink/go/proto/common_go_proto"
+	ecdsapb "github.com/nandawangsa/tink/go/proto/ecdsa_go_proto"
 )
 
 // getECDSAParamNames returns the string representations of each parameter in

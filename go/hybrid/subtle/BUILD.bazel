@@ -13,7 +13,7 @@ go_library(
         "elliptic_curves.go",
         "subtle.go",
     ],
-    importpath = "github.com/google/tink/go/hybrid/subtle",
+    importpath = "github.com/nandawangsa/tink/go/hybrid/subtle",
     deps = [
         "//subtle:go_default_library",
         "//tink:go_default_library",

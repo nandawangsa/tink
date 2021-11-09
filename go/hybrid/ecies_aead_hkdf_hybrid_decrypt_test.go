@@ -21,12 +21,12 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/google/tink/go/aead"
-	"github.com/google/tink/go/daead"
-	"github.com/google/tink/go/hybrid/subtle"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/aead"
+	"github.com/nandawangsa/tink/go/daead"
+	"github.com/nandawangsa/tink/go/hybrid/subtle"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/testutil"
 )
 
 func modifyDecrypt(t *testing.T, c string, k *tinkpb.KeyTemplate) {

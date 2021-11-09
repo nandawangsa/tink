@@ -144,7 +144,7 @@ def tink_go_deps_init():
     )
     go_repository(
         name = "com_github_google_tink_go",
-        importpath = "github.com/google/tink/go",
+        importpath = "github.com/nandawangsa/tink/go",
         sum = "h1:7Ihv6n6/0zPrm2GRAeeF408P9Y00HXC2J6tvUzgb2sg=",
         version = "v1.4.0",
     )

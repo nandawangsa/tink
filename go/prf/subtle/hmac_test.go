@@ -23,8 +23,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/tink/go/prf/subtle"
-	"github.com/google/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/prf/subtle"
+	"github.com/nandawangsa/tink/go/testutil"
 )
 
 type rfc4868test struct {

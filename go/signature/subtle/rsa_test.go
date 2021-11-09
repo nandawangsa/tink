@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/google/tink/go/signature/subtle"
+	"github.com/nandawangsa/tink/go/signature/subtle"
 )
 
 func TestGenerateRSAKey(t *testing.T) {

@@ -8,7 +8,7 @@ go_library(
         "hkdf.go",
         "subtle.go",
     ],
-    importpath = "github.com/google/tink/go/subtle",
+    importpath = "github.com/nandawangsa/tink/go/subtle",
     deps = ["@org_golang_x_crypto//hkdf:go_default_library"],
 )
 

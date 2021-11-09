@@ -22,7 +22,7 @@ package rsa_ssa_pss_go_proto
 import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	common_go_proto "github.com/google/tink/go/proto/common_go_proto"
+	common_go_proto "github.com/nandawangsa/tink/go/proto/common_go_proto"
 	math "math"
 )
 

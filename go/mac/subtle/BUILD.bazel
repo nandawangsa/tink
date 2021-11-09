@@ -8,7 +8,7 @@ go_library(
         "cmac.go",
         "hmac.go",
     ],
-    importpath = "github.com/google/tink/go/mac/subtle",
+    importpath = "github.com/nandawangsa/tink/go/mac/subtle",
     deps = [
         "//prf/subtle:go_default_library",
         "//subtle:go_default_library",

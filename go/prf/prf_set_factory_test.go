@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/mac"
-	"github.com/google/tink/go/prf"
-	"github.com/google/tink/go/testutil"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/mac"
+	"github.com/nandawangsa/tink/go/prf"
+	"github.com/nandawangsa/tink/go/testutil"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 const (

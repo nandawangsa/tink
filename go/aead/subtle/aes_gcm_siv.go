@@ -24,7 +24,7 @@ import (
 	"math"
 
 	// Placeholder for internal crypto/subtle allowlist, please ignore. // to allow import of "crypto/subte"
-	"github.com/google/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/subtle/random"
 )
 
 const (

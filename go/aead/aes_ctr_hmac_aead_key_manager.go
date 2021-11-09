@@ -21,15 +21,15 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/tink/go/aead/subtle"
-	"github.com/google/tink/go/keyset"
-	subtleMac "github.com/google/tink/go/mac/subtle"
-	"github.com/google/tink/go/subtle/random"
-	ctrpb "github.com/google/tink/go/proto/aes_ctr_go_proto"
-	aeadpb "github.com/google/tink/go/proto/aes_ctr_hmac_aead_go_proto"
-	commonpb "github.com/google/tink/go/proto/common_go_proto"
-	hmacpb "github.com/google/tink/go/proto/hmac_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/aead/subtle"
+	"github.com/nandawangsa/tink/go/keyset"
+	subtleMac "github.com/nandawangsa/tink/go/mac/subtle"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	ctrpb "github.com/nandawangsa/tink/go/proto/aes_ctr_go_proto"
+	aeadpb "github.com/nandawangsa/tink/go/proto/aes_ctr_hmac_aead_go_proto"
+	commonpb "github.com/nandawangsa/tink/go/proto/common_go_proto"
+	hmacpb "github.com/nandawangsa/tink/go/proto/hmac_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 const (

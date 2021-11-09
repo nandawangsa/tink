@@ -31,11 +31,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/google/tink/go/aead"
-	"github.com/google/tink/go/core/registry"
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/testkeyset"
-	"github.com/google/tink/go/tink"
+	"github.com/nandawangsa/tink/go/aead"
+	"github.com/nandawangsa/tink/go/core/registry"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/testkeyset"
+	"github.com/nandawangsa/tink/go/tink"
 )
 
 const fakePrefix = "fake-kms://"

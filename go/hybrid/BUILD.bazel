@@ -11,7 +11,7 @@ go_library(
         "hybrid_key_templates.go",
         "ecies_aead_hkdf_dem_helper.go",
     ],
-    importpath = "github.com/google/tink/go/hybrid",
+    importpath = "github.com/nandawangsa/tink/go/hybrid",
     visibility = ["//visibility:public"],
     deps = [
         "//aead:go_default_library",

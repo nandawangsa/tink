@@ -16,7 +16,7 @@
 
 package subtle
 
-import "github.com/google/tink/go/subtle"
+import "github.com/nandawangsa/tink/go/subtle"
 
 // ECIESHKDFRecipientKem represents a HKDF-based KEM (key encapsulation mechanism)
 // for ECIES recipient.

@@ -20,14 +20,14 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/mac"
-	"github.com/google/tink/go/signature"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/testkeyset"
-	"github.com/google/tink/go/testutil"
-	commonpb "github.com/google/tink/go/proto/common_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/mac"
+	"github.com/nandawangsa/tink/go/signature"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/testkeyset"
+	"github.com/nandawangsa/tink/go/testutil"
+	commonpb "github.com/nandawangsa/tink/go/proto/common_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 func TestSignerVerifyFactory(t *testing.T) {

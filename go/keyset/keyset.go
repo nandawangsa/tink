@@ -19,8 +19,8 @@
 package keyset
 
 import (
-	"github.com/google/tink/go/internal"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/internal"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 // keysetHandle is used by package insecurecleartextkeyset and package

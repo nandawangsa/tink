@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"hash"
 
-	"github.com/google/tink/go/subtle"
+	"github.com/nandawangsa/tink/go/subtle"
 )
 
 const (

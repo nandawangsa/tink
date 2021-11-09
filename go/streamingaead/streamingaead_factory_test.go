@@ -24,14 +24,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/mac"
-	"github.com/google/tink/go/streamingaead"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/testkeyset"
-	"github.com/google/tink/go/testutil"
-	"github.com/google/tink/go/tink"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/mac"
+	"github.com/nandawangsa/tink/go/streamingaead"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/testkeyset"
+	"github.com/nandawangsa/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/tink"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 func TestFactoryMultipleKeys(t *testing.T) {

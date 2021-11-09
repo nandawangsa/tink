@@ -23,11 +23,11 @@ import (
 	"fmt"
 	"io"
 
-	subtleaead "github.com/google/tink/go/aead/subtle"
-	subtlemac "github.com/google/tink/go/mac/subtle"
-	"github.com/google/tink/go/streamingaead/subtle/noncebased"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/subtle"
+	subtleaead "github.com/nandawangsa/tink/go/aead/subtle"
+	subtlemac "github.com/nandawangsa/tink/go/mac/subtle"
+	"github.com/nandawangsa/tink/go/streamingaead/subtle/noncebased"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/subtle"
 )
 
 const (

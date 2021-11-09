@@ -25,9 +25,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/google/tink/go/kwp/subtle"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/kwp/subtle"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/testutil"
 )
 
 func TestWrapUnwrap(t *testing.T) {

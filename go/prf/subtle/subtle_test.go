@@ -16,7 +16,7 @@
 
 package subtle_test
 
-import "github.com/google/tink/go/testutil"
+import "github.com/nandawangsa/tink/go/testutil"
 
 type macSuite struct {
 	testutil.WycheproofSuite

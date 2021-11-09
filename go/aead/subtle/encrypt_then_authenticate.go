@@ -21,7 +21,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/google/tink/go/tink"
+	"github.com/nandawangsa/tink/go/tink"
 )
 
 // EncryptThenAuthenticate performs an encrypt-then-MAC operation on plaintext

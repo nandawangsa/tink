@@ -20,9 +20,9 @@ package testkeyset
 import (
 	"errors"
 
-	"github.com/google/tink/go/internal"
-	"github.com/google/tink/go/keyset"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/internal"
+	"github.com/nandawangsa/tink/go/keyset"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 var (

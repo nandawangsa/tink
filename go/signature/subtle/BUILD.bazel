@@ -14,7 +14,7 @@ go_library(
         "rsa.go",
         "subtle.go",
     ],
-    importpath = "github.com/google/tink/go/signature/subtle",
+    importpath = "github.com/nandawangsa/tink/go/signature/subtle",
     deps = [
         "//subtle:go_default_library",
         "@org_golang_x_crypto//ed25519:go_default_library",

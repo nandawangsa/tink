@@ -22,10 +22,10 @@ import (
 	"log"
 	"testing"
 
-	"github.com/google/tink/go/core/registry"
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/mac"
-	"github.com/google/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/core/registry"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/mac"
+	"github.com/nandawangsa/tink/go/testutil"
 )
 
 func TestMacInit(t *testing.T) {

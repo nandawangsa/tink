@@ -8,7 +8,7 @@ go_library(
     name = "go_default_library",
     testonly = 1,
     srcs = ["fakekms.go"],
-    importpath = "github.com/google/tink/go/testing/fakekms",
+    importpath = "github.com/nandawangsa/tink/go/testing/fakekms",
     visibility = ["//visibility:public"],
     deps = [
         "//aead:go_default_library",

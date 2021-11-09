@@ -21,7 +21,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/google/tink/go/tink"
+	"github.com/nandawangsa/tink/go/tink"
 )
 
 var (

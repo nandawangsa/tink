@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/google/tink/go/testing/fakekms"
+	"github.com/nandawangsa/tink/go/testing/fakekms"
 )
 
 const keyURI = "fake-kms://CM2b3_MDElQKSAowdHlwZS5nb29nbGVhcGlzLmNvbS9nb29nbGUuY3J5cHRvLnRpbmsuQWVzR2NtS2V5EhIaEIK75t5L-adlUwVhWvRuWUwYARABGM2b3_MDIAE"

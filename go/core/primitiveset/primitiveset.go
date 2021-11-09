@@ -25,8 +25,8 @@ package primitiveset
 import (
 	"fmt"
 
-	"github.com/google/tink/go/core/cryptofmt"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/core/cryptofmt"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 // Entry represents a single entry in the keyset. In addition to the actual

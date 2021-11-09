@@ -14,7 +14,7 @@ go_library(
     data = [
         "@tink_base//testdata/templates",
     ],
-    importpath = "github.com/google/tink/go/testutil",
+    importpath = "github.com/nandawangsa/tink/go/testutil",
     deps = [
         "//aead:go_default_library",
         "//core/registry:go_default_library",

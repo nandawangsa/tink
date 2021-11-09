@@ -21,10 +21,10 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/tink/go/core/registry"
-	"github.com/google/tink/go/keyset"
-	kmsepb "github.com/google/tink/go/proto/kms_envelope_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/core/registry"
+	"github.com/nandawangsa/tink/go/keyset"
+	kmsepb "github.com/nandawangsa/tink/go/proto/kms_envelope_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 const (

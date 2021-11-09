@@ -24,9 +24,9 @@ import (
 	"testing"
 
 	"golang.org/x/crypto/chacha20poly1305"
-	"github.com/google/tink/go/aead/subtle"
-	"github.com/google/tink/go/subtle/random"
-	"github.com/google/tink/go/testutil"
+	"github.com/nandawangsa/tink/go/aead/subtle"
+	"github.com/nandawangsa/tink/go/subtle/random"
+	"github.com/nandawangsa/tink/go/testutil"
 )
 
 func TestChaCha20Poly1305EncryptDecrypt(t *testing.T) {

@@ -20,10 +20,10 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/tink/go/keyset"
-	"github.com/google/tink/go/signature/subtle"
-	ecdsapb "github.com/google/tink/go/proto/ecdsa_go_proto"
-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+	"github.com/nandawangsa/tink/go/keyset"
+	"github.com/nandawangsa/tink/go/signature/subtle"
+	ecdsapb "github.com/nandawangsa/tink/go/proto/ecdsa_go_proto"
+	tinkpb "github.com/nandawangsa/tink/go/proto/tink_go_proto"
 )
 
 const (
