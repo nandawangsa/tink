@@ -105,8 +105,6 @@ func (e *EncryptThenAuthenticate) Decrypt(ciphertext, additionalData []byte) ([]
 	if len(additionalData) > 0 {
 		toAuthData = append(toAuthData, uint64ToByte(aadSizeInBits)...)
 	}
-	fmt.Printf("uint64ToByte(aadSizeInBits) [%v]:\t %v \n", len(uint64ToByte(aadSizeInBits)), uint64ToByte(aadSizeInBits))
-	fmt.Printf("toAuthData [%v]:\t %v \n", len(toAuthData), toAuthData)
 	err := e.mac.VerifyMAC(ciphertext[len(ciphertext)-e.tagSize:], toAuthData)
 	if err != nil {
 		return nil, fmt.Errorf("encrypt_then_authenticate: %v", err)
