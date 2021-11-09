@@ -1,0 +1,113 @@
+Index: go/aead/subtle/encrypt_then_authenticate.go
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/go/aead/subtle/encrypt_then_authenticate.go b/go/aead/subtle/encrypt_then_authenticate.go
+--- a/go/aead/subtle/encrypt_then_authenticate.go	(revision 14d1865d7777a699c7871a315992709e833673d5)
++++ b/go/aead/subtle/encrypt_then_authenticate.go	(date 1630305911562)
+@@ -101,14 +101,20 @@
+ 	// additionalData || payload || aadSizeInBits
+ 	toAuthData := append(additionalData, payload...)
+ 	aadSizeInBits := uint64(len(additionalData)) * 8
+-	toAuthData = append(toAuthData, uint64ToByte(aadSizeInBits)...)
+-
++	// TODO(edisonc@): adding trailing uint64ToByte(aadSizeInBits) causes HMAC failure, HMAC verified successfully after its removal
++	if len(additionalData) > 0 {
++		toAuthData = append(toAuthData, uint64ToByte(aadSizeInBits)...)
++	}
++	fmt.Printf("uint64ToByte(aadSizeInBits) [%v]:\t %v \n", len(uint64ToByte(aadSizeInBits)), uint64ToByte(aadSizeInBits))
++	fmt.Printf("toAuthData [%v]:\t %v \n", len(toAuthData), toAuthData)
+ 	err := e.mac.VerifyMAC(ciphertext[len(ciphertext)-e.tagSize:], toAuthData)
+ 	if err != nil {
+ 		return nil, fmt.Errorf("encrypt_then_authenticate: %v", err)
+ 	}
+ 
+-	plaintext, err := e.indCPACipher.Decrypt(payload)
++	// TODO(edisonc@): must append 16-byte zeros as IV to the head of payload, otherwise decryption won't work
++	payloadWithZeroIV := append([]byte{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, payload...)
++	plaintext, err := e.indCPACipher.Decrypt(payloadWithZeroIV)
+ 	if err != nil {
+ 		return nil, fmt.Errorf("encrypt_then_authenticate: %v", err)
+ 	}
+Index: go/hybrid/ecies_aead_hkdf_hybrid_decrypt_test.go
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/go/hybrid/ecies_aead_hkdf_hybrid_decrypt_test.go b/go/hybrid/ecies_aead_hkdf_hybrid_decrypt_test.go
+--- a/go/hybrid/ecies_aead_hkdf_hybrid_decrypt_test.go	(revision 14d1865d7777a699c7871a315992709e833673d5)
++++ b/go/hybrid/ecies_aead_hkdf_hybrid_decrypt_test.go	(date 1630310064522)
+@@ -24,9 +24,9 @@
+ 	"github.com/google/tink/go/aead"
+ 	"github.com/google/tink/go/daead"
+ 	"github.com/google/tink/go/hybrid/subtle"
++	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+ 	"github.com/google/tink/go/subtle/random"
+ 	"github.com/google/tink/go/testutil"
+-	tinkpb "github.com/google/tink/go/proto/tink_go_proto"
+ )
+ 
+ func modifyDecrypt(t *testing.T, c string, k *tinkpb.KeyTemplate) {
+@@ -186,5 +186,58 @@
+ 			}
+ 		})
+ 	}
+-
+-}
++}
++
++func TestPaymentMethodTokenVectors(t *testing.T) {
++	testvectors := []struct {
++		name, key, ciphertext, context, plaintext string
++	}{
++		{
++			name:       "Example Visa Card",
++			// key format: uncompressed point in hexadecimal string
++			key:        "{INSERT YOUR PRIVATE KEY IN HEX FORMAT EXAMPLE: 32588172ed65830571bb83748f7fddd383323208a7825c80a71bef846333eb02}",
++			// ciphertext format: ephemeralPublicKey || encryptedMessage || tag
++			ciphertext: "0407e695b3a81303f3119acb8b91bcbca69cb0dbffb1921403e6b416c6ed86b482827f089808d2199b7926c9c26b636dd7ea01990f06bb30e44a11f770d27110649f178efbb09ede8cbcbcef6b0e5ed7a28ae4e95cc60c02e598105a3ef75ff6678188f6ad7fb388790d637cd712a005cf360c55c54dee904cde132f45b59b10a22e2d0f59f4dd640b52af07b6c7bd5f1cb1fb93f51d6548ed7c175513e1bbab1447b42ef3d9574c979345ce14fbf375fc30dfa28e0d7c005e8d274013de0ddd20b1a6584e9fcfac9a1c34d3d930353d9612fe39dbcc62379480ef2ce853dc8531e968da1029882cd1c42cbc2930aa42a56d15b87ec1294b0a4ea600191d6cad023f6ba69f31600b97725ee48165d7f4d3e98a118897de52411c5883f50a88f0fbdbdfc21ad68cad48284fdad471945bc160cd47863f1f87c8a8f01d415b1e5161f413ccf304128ddc6690db2ba56c23af84a6f23f28b9a22d14df97801d007bb1cc3a0369916572aee3a343b33642fb12dfadc5f51d6609752e7d6028716204965d61187a8f42a461484fe5f654938aaf31d3fef7cce2115814387a1a5b8fec25f253552b67ef7737d749d19b791761b14bd2dbcf078a590a65f6e40e574a734c0ca6ad21e862c27d9099326526122c691a68753eda17ac20f17e48",
++			context:    "Google",
++			plaintext:  "{\"gatewayMerchantId\":\"exampleGatewayMerchantId\",\"messageExpiration\":\"1630847022112\",\"messageId\":\"AH2Ejtf29yHSgQQwr3Q-gnNe7lkM82PJiMzn9F1EbFp5VCb4ekdKyHYgZmGrm4SOjGTbapO26pgLHbbGenWM1HwRoXFh-CgMNnlF77VjT_503QkWLza12aNAOwXrQDM3pWS6SgZO_7Gf\",\"paymentMethod\":\"CARD\",\"paymentMethodDetails\":{\"expirationYear\":2026,\"expirationMonth\":12,\"pan\":\"4111111111111111\",\"authMethod\":\"PAN_ONLY\"}}",
++		},
++	}
++
++	for _, tv := range testvectors {
++		t.Run(tv.name, func(t *testing.T) {
++			key, err := hex.DecodeString(tv.key)
++			if err != nil {
++				t.Fatalf("error decoding test vector key :%s", err)
++			}
++			ct, err := hex.DecodeString(tv.ciphertext)
++			if err != nil {
++				t.Fatalf("error decoding test vector ciphertext :%s", err)
++			}
++			ctx := []byte(tv.context)
++			pt := []byte(tv.plaintext)
++
++			curve, _ := subtle.GetCurve("NIST_P256")
++			pvt := subtle.GetECPrivateKey(curve, key)
++			var salt []byte
++			helper, err := newRegisterECIESAEADHKDFDemHelper(aead.AES256CTRHMACSHA256KeyTemplate())
++			if err != nil {
++				t.Fatalf("error generating a DEM helper :%s", err)
++			}
++			d, err := subtle.NewECIESAEADHKDFHybridDecrypt(pvt, salt, "SHA256", "UNCOMPRESSED", helper)
++			if err != nil {
++				t.Fatalf("error generating an decryption construct :%s", err)
++			}
++			dt, err := d.Decrypt(ct, ctx)
++			if err != nil {
++				t.Fatalf("decryption error :%s", err)
++			}
++
++			t.Logf("decrypted bytes [%v]:\t %v \n", len(dt), dt)
++			t.Logf("decrypted text:\t %v \n", string(dt))
++
++			if !bytes.Equal(dt, pt) {
++				t.Errorf("Decryption did not match test vector's plaintext")
++			}
++		})
++	}
++}
+\ No newline at end of file

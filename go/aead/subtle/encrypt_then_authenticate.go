@@ -101,14 +101,20 @@ func (e *EncryptThenAuthenticate) Decrypt(ciphertext, additionalData []byte) ([]
 	// additionalData || payload || aadSizeInBits
 	toAuthData := append(additionalData, payload...)
 	aadSizeInBits := uint64(len(additionalData)) * 8
-	toAuthData = append(toAuthData, uint64ToByte(aadSizeInBits)...)
-
+	// TODO(edisonc@): adding trailing uint64ToByte(aadSizeInBits) causes HMAC failure, HMAC verified successfully after its removal
+	if len(additionalData) > 0 {
+		toAuthData = append(toAuthData, uint64ToByte(aadSizeInBits)...)
+	}
+	fmt.Printf("uint64ToByte(aadSizeInBits) [%v]:\t %v \n", len(uint64ToByte(aadSizeInBits)), uint64ToByte(aadSizeInBits))
+	fmt.Printf("toAuthData [%v]:\t %v \n", len(toAuthData), toAuthData)
 	err := e.mac.VerifyMAC(ciphertext[len(ciphertext)-e.tagSize:], toAuthData)
 	if err != nil {
 		return nil, fmt.Errorf("encrypt_then_authenticate: %v", err)
 	}
 
-	plaintext, err := e.indCPACipher.Decrypt(payload)
+	// TODO(edisonc@): must append 16-byte zeros as IV to the head of payload, otherwise decryption won't work
+	payloadWithZeroIV := append([]byte{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, payload...)
+	plaintext, err := e.indCPACipher.Decrypt(payloadWithZeroIV)
 	if err != nil {
 		return nil, fmt.Errorf("encrypt_then_authenticate: %v", err)
 	}
